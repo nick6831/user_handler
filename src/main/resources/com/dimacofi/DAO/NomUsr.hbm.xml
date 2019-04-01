@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 20-03-2019 16:10:13 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.dimacofi.DAO.NomUsr" table="nom_usr" schema="public" optimistic-lock="version">
+        <id name="idUser" type="short">
+            <column name="id_user" />
+            <generator class="foreign">
+                <param name="property">users</param>
+            </generator>
+        </id>
+        <many-to-one name="rol" class="com.dimacofi.DAO.Rol" fetch="select">
+            <column name="id_rol" not-null="true" />
+        </many-to-one>
+        <one-to-one name="users" class="com.dimacofi.DAO.Users" constrained="true"></one-to-one>
+        <property name="nombres" type="string">
+            <column name="nombres" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

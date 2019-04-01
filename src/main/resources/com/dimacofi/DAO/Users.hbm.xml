@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 20-03-2019 16:10:13 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.dimacofi.DAO.Users" table="users" schema="public" optimistic-lock="version">
+        <id name="idUser" type="short">
+            <column name="id_user" />
+            <generator class="assigned" />
+        </id>
+        <property name="userName" type="string">
+            <column name="user_name" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" />
+        </property>
+        <one-to-one name="nomUsr" class="com.dimacofi.DAO.NomUsr"></one-to-one>
+    </class>
+</hibernate-mapping>
